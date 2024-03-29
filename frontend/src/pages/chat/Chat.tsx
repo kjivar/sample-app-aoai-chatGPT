@@ -81,7 +81,7 @@ const Chat = () => {
             && hideErrorDialog) {
             let subtitle = `${appStateContext.state.isCosmosDBAvailable.status}. Please contact the site administrator.`
             setErrorMsg({
-                title: "Chat history is not enabled",
+                title: "Historial del Chat no disponible",
                 subtitle: subtitle
             })
             toggleErrorDialog();
@@ -170,7 +170,7 @@ const Chat = () => {
         } else {
             conversation = appStateContext?.state?.currentChat
             if (!conversation) {
-                console.error("Conversation not found.");
+                console.error("Conversación no encontrada.");
                 setIsLoading(false);
                 setShowLoadingMessage(false);
                 abortFuncs.current = abortFuncs.current.filter(a => a !== abortController);
@@ -765,7 +765,7 @@ const Chat = () => {
                             </Stack>
                             <QuestionInput
                                 clearOnSend
-                                placeholder="Type a new question..."
+                                placeholder="Ingrese la Solicitud..."
                                 disabled={isLoading}
                                 onSend={(question, id) => {
                                     appStateContext?.state.isCosmosDBAvailable?.cosmosDB ? makeApiRequestWithCosmosDB(question, id) : makeApiRequestWithoutCosmosDB(question, id)
